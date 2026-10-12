@@ -1,59 +1,114 @@
 # Career Launch — Student Career & Internship Portal
 
-Beginner-friendly full-stack JavaScript Framework PBL starter project.
+Career Launch is a full-stack JavaScript web application that helps students explore internship and job opportunities, apply for positions, and track their application status.
 
-## Features included
-- Student registration and login using bcrypt password hashing and JWT
-- Protected student profile endpoint
-- Browse, search, and filter job/internship opportunities
-- Admin-only create, edit, and delete opportunity endpoints
-- Students can apply to an opportunity and view their own application tracker
-- Application status values: Applied, Shortlisted, Interview, Rejected, Selected
-- React UI with pages for login/register, opportunities, and my applications
+## Features
 
-## Technology
-React + Vite, React Router, Axios, Node.js, Express, MongoDB/Mongoose, JWT, bcryptjs.
+* Student registration and login using bcrypt password hashing and JWT authentication
+* Protected student profile endpoint
+* Browse, search, and filter job and internship opportunities
+* Admin-only opportunity management endpoints
+* Apply for opportunities and view personal applications
+* Track application statuses: Applied, Shortlisted, Interview, Rejected, and Selected
+* React user interface with login, registration, opportunities, and applications pages
+
+## Technologies Used
+
+* **Frontend:** React.js, Vite, React Router, Axios
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB, Mongoose
+* **Authentication:** JSON Web Tokens (JWT), bcryptjs
+* **Language:** JavaScript
 
 ## Requirements
-Install Node.js LTS and MongoDB Community locally, or use a MongoDB Atlas connection string.
 
-## Run locally
-1. Open this folder in VS Code.
-2. Backend:
-   ```bash
-   cd backend
-   npm install
-   cp .env.example .env
-   ```
-   Edit `.env`: set `MONGO_URI`, a long random `JWT_SECRET`, and `ADMIN_EMAIL`/`ADMIN_PASSWORD`.
-   ```bash
-   npm run dev
-   ```
-3. Frontend in a second terminal:
-   ```bash
-   cd frontend
-   npm install
-   cp .env.example .env
-   npm run dev
-   ```
-4. Open the local URL printed by Vite (normally http://localhost:5173).
-5. Register a student account. To make an admin account, register with the exact `ADMIN_EMAIL` and `ADMIN_PASSWORD` configured in `.env`; only that email/password pair is assigned the admin role. Change the example credentials before running. Do not use this simple setup for production.
+* Node.js LTS
+* MongoDB Community Server or MongoDB Atlas
+* Visual Studio Code
+* Git
 
-## API overview
-- `POST /api/auth/register`
-- `POST /api/auth/login`
-- `GET /api/auth/me` (JWT)
-- `GET /api/opportunities` (public)
-- `POST /api/opportunities` (admin)
-- `PUT /api/opportunities/:id` (admin)
-- `DELETE /api/opportunities/:id` (admin)
-- `POST /api/applications/:opportunityId` (student)
-- `GET /api/applications/my` (student)
-- `PATCH /api/applications/:id/status` (admin)
-- `GET /api/health`
+## Run Locally
 
-## Before submission
-- Run and test the application on your own machine.
-- Add your real name, enrollment number, faculty details, and actual screenshots to the report.
-- Complete the testing table with actual results; do not claim tests or deployment you did not perform.
-- The included report is a draft aligned to the university report structure, not a claim that the app has been deployed or externally audited.
+### 1. Backend setup
+
+Open a terminal in the project folder and run:
+
+```bash
+cd backend
+npm install
+```
+
+Create a `.env` file using `.env.example` as a reference. Configure the MongoDB connection, JWT secret, administrator email, and administrator password.
+
+Start the backend:
+
+```bash
+npm run dev
+```
+
+### 2. Frontend setup
+
+Open a second terminal in the project folder and run:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Open the local URL shown by Vite, normally `http://localhost:5173`.
+
+### 3. Database
+
+Ensure MongoDB is running or that your MongoDB Atlas connection is configured correctly.
+
+## API Overview
+
+| Method | Endpoint                           | Purpose                           |
+| ------ | ---------------------------------- | --------------------------------- |
+| POST   | `/api/auth/register`               | Register a student                |
+| POST   | `/api/auth/login`                  | Sign in                           |
+| GET    | `/api/auth/me`                     | Get authenticated user details    |
+| GET    | `/api/opportunities`               | View opportunities                |
+| POST   | `/api/opportunities`               | Create an opportunity (admin)     |
+| PUT    | `/api/opportunities/:id`           | Update an opportunity (admin)     |
+| DELETE | `/api/opportunities/:id`           | Delete an opportunity (admin)     |
+| POST   | `/api/applications/:opportunityId` | Apply for an opportunity          |
+| GET    | `/api/applications/my`             | View personal applications        |
+| PATCH  | `/api/applications/:id/status`     | Update application status (admin) |
+| GET    | `/api/health`                      | Check backend health              |
+
+## Project Structure
+
+```text
+Career_Launch_Project/
+├── backend/
+│   ├── src/
+│   ├── package.json
+│   └── .env.example
+├── frontend/
+│   ├── src/
+│   ├── package.json
+│   └── .env.example
+├── docs/
+├── README.md
+└── .gitignore
+```
+
+## Testing
+
+The application was run locally during development. The student login, opportunities listing, and application workflow were checked.
+
+Add further test cases and screenshots based on the tests actually completed on your machine.
+
+## Future Enhancements
+
+* Email notifications for application updates
+* Advanced search and filtering
+* Resume upload and profile management
+* Deployment to a hosting platform
+* Improved administrator dashboard
+
+## Security Note
+
+Keep `.env` files and credentials private. Do not commit passwords, JWT secrets, or database credentials to GitHub. This project is a learning prototype and should be reviewed and secured before production use.
