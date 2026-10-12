@@ -1,0 +1,16 @@
+CAREER LAUNCH - QUICK RUN CHECKLIST
+
+[ ] Install Node.js LTS and MongoDB (or create a MongoDB Atlas database).
+[ ] Open Career_Launch_Project in VS Code.
+[ ] In backend, run npm install and copy .env.example to .env.
+[ ] Change JWT_SECRET, ADMIN_EMAIL and ADMIN_PASSWORD in backend/.env.
+[ ] Start backend with npm run dev.
+[ ] In frontend, run npm install and copy .env.example to .env.
+[ ] Start frontend with npm run dev.
+[ ] Open the Vite URL shown in terminal.
+[ ] Register as a student and test browsing/applying.
+[ ] To create admin, register using the configured ADMIN_EMAIL and ADMIN_PASSWORD.
+[ ] Add a sample opportunity and test application tracking.
+[ ] Take your own screenshots and complete the report with actual results.
+
+Note: This package is a starter implementation. Local end-to-end execution against your MongoDB instance has not been verified in your environment. Do not report tests as passed until you run them.
